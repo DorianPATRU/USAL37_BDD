@@ -30,22 +30,33 @@ VALUES
 CREATE table clients 
 (
 	client_id INT PRIMARY KEY AUTO_INCREMENT,
-    client_lastname VARCHAR(32),
-    client_firstname VARCHAR(32),
-    client_email VARCHAR(128),
-    client_phone CHAR(16),
-    client_added DATE,
-    client_password CHAR(60)
+    client_lastname VARCHAR(32) NOT NULL,
+    client_firstname VARCHAR(32) NOT NULL,
+    client_email VARCHAR(128) NOT NULL,
+    client_phone CHAR(16) NOT NULL,
+    client_added DATE NOT NULL,
+    client_password CHAR(60) NOT NULL,
+    com_code CHAR(5) NOT NULL, 
+    FOREIGN KEY (com_code) REFERENCES sales(com_code) 
 );
 
 INSERT INTO clients 
-(client_lastname, client_firstname, client_email, client_phone, client_added, client_password) 
+(com_code, client_lastname, client_firstname, client_email, client_phone, client_added, client_password) 
 VALUES 
-('Dupont', 'Ernest', 'a@a.fr', 		'0102030405', NOW(), '$2y$10$OpUTjAUsVuKtCstwAq5DeOVWPgofb2d2v.tsQuUCIgezmBqiv4fEi'), 
-('Dupond', 'Louis', 'b@b.fr', 		'0203040506', NOW(), '$2y$10$OpUTjAUsVuKtCstwAq5DeOVWPgofb2d2v.tsQuUCIgezmBqiv4fEi'), 
-('Martin', 'Léo', 'c@c.fr', 	 	'0312345678', NOW(), '$2y$10$OpUTjAUsVuKtCstwAq5DeOVWPgofb2d2v.tsQuUCIgezmBqiv4fEi'), 
-('Devoldère', 'Mickaël', 'd@d.fr', 	'0678963214', NOW(), '$2y$10$OpUTjAUsVuKtCstwAq5DeOVWPgofb2d2v.tsQuUCIgezmBqiv4fEi'), 
-('Ben', 'Joe', 'e@e.fr', 			'0698741235', NOW(), '$2y$10$OpUTjAUsVuKtCstwAq5DeOVWPgofb2d2v.tsQuUCIgezmBqiv4fEi');
+('BA201', 'Dupont', 'Ernest', 'a@a.fr', 		'0102030405', NOW(), '$2y$10$OpUTjAUsVuKtCstwAq5DeOVWPgofb2d2v.tsQuUCIgezmBqiv4fEi'), 
+('NJ247', 'Dupond', 'Louis', 'b@b.fr', 		'0203040506', NOW(), '$2y$10$OpUTjAUsVuKtCstwAq5DeOVWPgofb2d2v.tsQuUCIgezmBqiv4fEi'), 
+('PJ714', 'Martin', 'Léo', 'c@c.fr', 	 	'0312345678', NOW(), '$2y$10$OpUTjAUsVuKtCstwAq5DeOVWPgofb2d2v.tsQuUCIgezmBqiv4fEi'), 
+('PM654', 'Devoldère', 'Mickaël', 'd@d.fr', 	'0678963214', NOW(), '$2y$10$OpUTjAUsVuKtCstwAq5DeOVWPgofb2d2v.tsQuUCIgezmBqiv4fEi'), 
+('YT023', 'Ben', 'Joe', 'e@e.fr', 			'0698741235', NOW(), '$2y$10$OpUTjAUsVuKtCstwAq5DeOVWPgofb2d2v.tsQuUCIgezmBqiv4fEi');
+
+SELECT client_email, client_password FROM clients;
+
+SELECT client_id, client_lastname, client_email, client_phone, client_added, com_code FROM clients;
 
 
-SELECT * FROM clients;
+
+SELECT * FROM clients 
+JOIN sales ON clients.com_code = sales.com_code
+;
+
+
