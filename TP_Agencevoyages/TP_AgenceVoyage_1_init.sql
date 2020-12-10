@@ -55,7 +55,9 @@ CREATE TABLE trips_theme
 (
 	trip_code INT,
     theme_code INT,
-    PRIMARY KEY (trip_code, theme_code)
+    PRIMARY KEY (trip_code, theme_code),
+    FOREIGN KEY (trip_code) REFERENCES trips(trip_code),
+    CONSTRAINT fk_trips_themes FOREIGN KEY (theme_code) REFERENCES themes(theme_code)
 );
 
 
@@ -67,6 +69,16 @@ CREATE TABLE services
     service_description MEDIUMTEXT NULL
 );
 
+CREATE TABLE trips_services
+(
+	trip_code INT,
+    service_code INT,
+    PRIMARY KEY (trip_code, service_code)
+);
+
+ALTER TABLE trips_services
+	ADD FOREIGN KEY (trip_code) REFERENCES trips(trip_code),
+	ADD CONSTRAINT fk_trips_services FOREIGN KEY (service_code) REFERENCES services(service_code);
 
 /*
 TINYINT    = 255 valeurs (-128 à +127)
@@ -152,6 +164,25 @@ VALUES
 ('Ski'),
 ('Balnéo'),
 ('Aventure');
+
+INSERT INTO services
+(service_name) 
+VALUES 
+('All inclusive'),
+('Coach sportif'),
+('Service d\'étage'),
+('SPA'),
+('Restaurant 4*');
+
+INSERT INTO trips_services
+(trip_code, service_code)
+VALUES
+(1, 2),
+(1, 3),
+(2, 2),
+(2, 4),
+(3, 4),
+(4, 5);
 
 
 INSERT INTO trips_theme
