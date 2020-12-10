@@ -3,8 +3,6 @@
 -- DML (INSERT UPDATE DELETE)
 -- DQL (SELECT)
 
-
-
 DROP DATABASE IF EXISTS usal37_agence;
 
 CREATE DATABASE usal37_agence DEFAULT CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_unicode_ci';
@@ -78,7 +76,7 @@ CREATE TABLE trips_services
 
 ALTER TABLE trips_services
 	ADD FOREIGN KEY (trip_code) REFERENCES trips(trip_code),
-	ADD CONSTRAINT fk_trips_services FOREIGN KEY (service_code) REFERENCES services(service_code);
+	ADD CONSTRAINT TOTO23 FOREIGN KEY (service_code) REFERENCES services(service_code);
 
 /*
 TINYINT    = 255 valeurs (-128 à +127)
@@ -165,16 +163,23 @@ VALUES
 ('Balnéo'),
 ('Aventure');
 
-INSERT INTO services
+INSERT INTO trips_theme
+(trip_code, theme_code)
+VALUES
+(1, 2), /* 1-2 */
+(1, 3), /* 1-3 */
+(2, 2); /* 2-2 */
+
+INSERT INTO services 
 (service_name) 
 VALUES 
 ('All inclusive'),
 ('Coach sportif'),
-('Service d\'étage'),
+('Service d\'étape'),
 ('SPA'),
 ('Restaurant 4*');
 
-INSERT INTO trips_services
+INSERT INTO trips_services 
 (trip_code, service_code)
 VALUES
 (1, 2),
@@ -183,14 +188,6 @@ VALUES
 (2, 4),
 (3, 4),
 (4, 5);
-
-
-INSERT INTO trips_theme
-(trip_code, theme_code)
-VALUES
-(1, 2), /* 1-2 */
-(1, 3), /* 1-3 */
-(59, 2); /* 3-2 */
 
 
 
