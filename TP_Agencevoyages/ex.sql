@@ -34,3 +34,39 @@ JOIN services ON services.service_code = trips_services.service_code
 
 SELECT NOW();
 
+
+SELECT city_name, country_code FROM cities;
+
+
+SELECT * FROM cities 
+JOIN countries ON cities.country_code = countries.country_code
+;
+
+
+SELECT city_name, country_name FROM cities 
+JOIN countries ON cities.country_code = countries.country_code
+;
+
+
+SELECT 
+city_name, 
+countries.country_code, 
+country_name 
+FROM cities 
+JOIN countries 
+ON cities.country_code = countries.country_code
+;
+
+SELECT 
+city_name, 
+countries.country_code 
+FROM countries 
+JOIN cities 
+ON cities.country_code = countries.country_code
+;
+
+
+
+
+-- Error Code: 1052. Column 'country_code' in field list is ambiguous
+

@@ -6,6 +6,15 @@
     
 3) 	Sélectionnez tous les clients (nom du commercial associé inclus)
 
+
+SUITE 
+
+4) Créer la table de liaison entre clients et trips
+	nom de la table : orders 
+    order_quantity & order_paid sont des colonnes de la tables de liaison (orders)
+    
+5) (bonus) créer une requête SELECT pour afficher : les voyages avec le nom du client associé
+
 */
 
 use usal37_agence;
@@ -53,10 +62,13 @@ SELECT client_email, client_password FROM clients;
 
 SELECT client_id, client_lastname, client_email, client_phone, client_added, com_code FROM clients;
 
-
-
 SELECT * FROM clients 
-JOIN sales ON clients.com_code = sales.com_code
-;
+JOIN sales ON clients.com_code = sales.com_code; 
 
 
+/*
+
+
+
+
+*/
