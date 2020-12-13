@@ -36,7 +36,7 @@ VALUES
 ('YT023', 'Yoyo Tata', '$2y$10$OpUTjAUsVuKtCstwAq5DeOVWPgofb2d2v.tsQuUCIgezmBqiv4fEi');
 
 
-CREATE table clients 
+CREATE TABLE clients 
 (
 	client_id INT PRIMARY KEY AUTO_INCREMENT,
     client_lastname VARCHAR(32) NOT NULL,
@@ -65,3 +65,16 @@ SELECT client_id, client_lastname, client_email, client_phone, client_added, com
 SELECT * FROM clients 
 JOIN sales ON clients.com_code = sales.com_code; 
 
+CREATE TABLE orders
+(
+   trip_code INT,
+   client_id INT,
+   order_quantity INT,
+   order_paid INT,
+   PRIMARY KEY (trip_code, client_id),
+   FOREIGN KEY (trip_code) REFERENCES trips(trip_code),
+   FOREIGN KEY (client_id) REFERENCES clients(client_id)
+);
+
+SELECT * FROM trips
+JOIN clients ON trips.trip_title = clients.client_lastname; 
