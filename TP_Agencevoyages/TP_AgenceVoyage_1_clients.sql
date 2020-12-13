@@ -65,10 +65,3 @@ SELECT client_id, client_lastname, client_email, client_phone, client_added, com
 SELECT * FROM clients 
 JOIN sales ON clients.com_code = sales.com_code; 
 
-
-/*
-
-
-
-
-*/
