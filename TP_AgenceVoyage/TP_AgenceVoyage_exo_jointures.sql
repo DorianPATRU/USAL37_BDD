@@ -48,7 +48,7 @@ trip_title,
 trip_price,
 country_name
 FROM clients 
-JOIN orders ON orders.client_id = clients.client_id 
+JOIN orders ON usal37_agence.orders.client_id = clients.client_id 
 JOIN trips  ON trips.trip_code = orders.trip_code 
 JOIN cities ON trips.city_code = cities.city_code 
 JOIN countries ON cities.country_code = countries.country_code;

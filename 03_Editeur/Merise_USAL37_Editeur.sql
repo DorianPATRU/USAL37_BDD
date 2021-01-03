@@ -13,7 +13,7 @@ CREATE TABLE shops
 (
 	shop_name VARCHAR(50) PRIMARY KEY, 
     shop_address VARCHAR(255) NOT NULL 
-);
+); 
 
 
 -- Création de la table authors  
