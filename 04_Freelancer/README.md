@@ -20,7 +20,9 @@ Pour chaque mission que vous acceptez :
 
 Après de longues recherches, vous décidez finalement de créer votre propre application de gestion ce qui vous permettra d'y inclure toutes les fonctionnalités dont vous aurez besoin.
 
-Afin de pouvoir accéder à votre logiciel à distance, votre choix s'est porté sur une application Web et vous décidez de la développer avec C# et ASP.NET MVC.
+Afin de pouvoir accéder à votre logiciel à distance, votre choix s'est porté sur une application Web et vous décidez de la développer avec PHP. 
+
+Votre application devra respecter l'architecture MVC.
 
 
 ### Fonctionnalités :
