@@ -21,25 +21,6 @@ use usal37_agence;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-SELECT * 
-
-
-
-
-
-
 SELECT * FROM orders;
 
 
