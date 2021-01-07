@@ -1,21 +1,22 @@
-DROP DATABASE IF EXISTS usal37_freelancer;
+DROP DATABASE IF EXISTS tp_freelancer;
 
-CREATE DATABASE usal37_freelancer DEFAULT CHARACTER SET 'utf8mb4_unicode_ci';
+CREATE DATABASE tp_freelancer DEFAULT CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_unicode_ci';
 
-USE usal37_freelancer;
+USE tp_freelancer;
 
 CREATE TABLE customers 
 (
     customer_id INT PRIMARY KEY AUTO_INCREMENT,
     customer_name VARCHAR(100) NOT NULL,
-    customer_email VARCHAR(255)
+    customer_email VARCHAR(255),
+    cat_id INT NOT NULL
 );
 
 CREATE TABLE customers_cats
 (
     cat_id INT PRIMARY KEY AUTO_INCREMENT,
     cat_name VARCHAR(50) NOT NULL,
-    cat_description TEXT
+    cat_description TEXT NULL
 );
 
 CREATE TABLE quotes 
@@ -40,11 +41,11 @@ CREATE TABLE jobs
 
 ALTER TABLE customers 
 ADD 
-    CONSTRAINT fk_customers_customers_cats FOREIGN KEY (cat_id) REFERENCES customers_cats (cat_id);
-
+    CONSTRAINT fk_customerscat FOREIGN KEY (cat_id) REFERENCES customers_cats (cat_id);
+/*
 ALTER TABLE jobs
 ADD 
-    CONSTRAINT fk_jobs_quotes FOREIGN KEY (quote_id) REFERENCES quotes(quote_id);
+    CONSTRAINT fk_jobsquote FOREIGN KEY (quote_id) REFERENCES quotes(quote_id);
 
 ALTER TABLE customers
 ADD
