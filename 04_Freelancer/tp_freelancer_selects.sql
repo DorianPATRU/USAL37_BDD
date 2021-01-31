@@ -33,7 +33,7 @@ JOIN customers_cats ON customers.cat_id = customers_cats.cat_id;
 	l'id et le nom du client et le nom de catégorie du client */
 
 SELECT 
-job_title AS 'Titre de la mission', 
+job_title AS titre_mission, 
 jobs.customer_id, 
 customer_name, 
 cat_name 
@@ -47,7 +47,7 @@ JOIN customers_cats ON customers.cat_id = customers_cats.cat_id;
 	l'id et le nom du client et le nom de catégorie du client */
 
 SELECT 
-job_title AS 'Titre de la mission', 
+job_title AS titre_mission, 
 J.customer_id, 
 customer_name, 
 cat_name 
